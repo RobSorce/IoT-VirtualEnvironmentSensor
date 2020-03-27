@@ -18,12 +18,12 @@ The Azure platform is also used as MQTT Broker, from which the data gathered fro
 
 # Requirements
 
-- A Microsoft Azure account
+- A [Microsoft Azure](https://azure.microsoft.com/en-us/) account
 - An Azure IoT Hub
 - Virtual devices inside the IoT Hub
 - An Azure CosmosDB database
-- NodeJS 12 LTS
-- Python 3.7
+- [NodeJS](https://nodejs.org/it/download/) 12 LTS
+- [Python](https://www.python.org/downloads/) 3.7
 
 ## Instructions
 
@@ -77,17 +77,17 @@ Enjoy it!
 
 Useful links and detiled guides: 
 
-Video Tutorial: https://youtu.be/OKkgBYG0hk4
+- Video Tutorial: https://youtu.be/OKkgBYG0hk4
 
-LinkedIn: www.linkedin.com/in/roberto-sorce-52491512a 
+- LinkedIn: www.linkedin.com/in/roberto-sorce-52491512a 
 
-Create an IoT Hub with Microsoft Azure: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal
+- Create an IoT Hub with Microsoft Azure: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal
 
-Send telemetry from a device to an IoT Hub: https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet
+- Send telemetry from a device to an IoT Hub: https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet
 
-MQTT protocol in Azure: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support
+- MQTT protocol in Azure: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support
 
-Real-time data visualization of your IoT hub data in a web app: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-live-data-visualization-in-web-apps
+- Real-time data visualization of your IoT hub data in a web app: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-live-data-visualization-in-web-apps
 
 
 
