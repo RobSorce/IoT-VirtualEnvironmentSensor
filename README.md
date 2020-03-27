@@ -23,7 +23,7 @@ The Azure platform is also used as MQTT Broker, from which the data gathered fro
 - Virtual devices inside the IoT Hub
 - An Azure CosmosDB database
 - [NodeJS](https://nodejs.org/it/download/) 12 LTS
-- [Python](https://www.python.org/downloads/) 3.7
+- [Python](https://www.python.org/downloads/) 3.6+
 
 ## Instructions
 
