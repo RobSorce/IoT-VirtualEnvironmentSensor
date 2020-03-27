@@ -22,12 +22,18 @@ The Azure platform is also used as MQTT Broker, from which the data gathered fro
 - An Azure IoT Hub
 - Virtual devices inside the IoT Hub
 - An Azure CosmosDB database
+- NodeJS 12 LTS
+- Python 3.7
 
 ## Instructions
 
 In order to reproduce the project in your local machine, it's necessary to create an IoT Hub and a device (or more) inside the Hub.
 
-1. 
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance:
+
+```
+az extension add --name azure-iot
+```
 
 Once created the virtual devices it's necessary to retrieve the _IoTHubConnectionString_ using the following command from the Azure CLI (replace with you device and Hub names):
 
@@ -40,9 +46,10 @@ and the _IoTDeviceConnectionString_:
 ```
 az iot hub device-identity show-connection-string --device-id <YouDeviceName> --output table --hub-name <YourHubName>
 ```
-Add a consumer group
+Add a consumer group: it provides independent views into the event stream that enable apps and Azure services to independently consume data from the same Event Hub endpoint. Execute the following command:
+
 ```
-az iot hub consumer-group create --hub-name YourIoTHubName --name YourConsumerGroupName
+az iot hub consumer-group create --hub-name <YourIoTHubName> --name YourConsumerGroupName
 ```
 
 **Note** These are different connection strings.
@@ -54,8 +61,33 @@ set IotHubConnectionString=YourIoTHubConnectionString
 set EventHubConsumerGroup=YourConsumerGroupName
 ```
 
-**Note** 
+Download the web app from this repository and modify the config.js file in order to connect to your own CosmosDB.
 
+Run the IoTSensorPublisher.py from your IDE or from the terminal to start sending messages from the virtual device to the MQTT Broker.
+
+Run the web app from the terminal:
+
+```
+npm install
+npm start
+```
+Open your favourite browser (your favourite browser should be Firefox btw...), log to ``` http://localhost:3000 ``` to view the messages coming from the virtual environment station.
+
+Enjoy it!
+
+Useful links and detiled guides: 
+
+Video Tutorial: https://youtu.be/OKkgBYG0hk4
+
+LinkedIn: www.linkedin.com/in/roberto-sorce-52491512a 
+
+Create an IoT Hub with Microsoft Azure: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal
+
+Send telemetry from a device to an IoT Hub: https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-dotnet
+
+MQTT protocol in Azure: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support
+
+Real-time data visualization of your IoT hub data in a web app: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-live-data-visualization-in-web-apps
 
 
 
