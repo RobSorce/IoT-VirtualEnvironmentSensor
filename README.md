@@ -81,7 +81,7 @@ Useful links and detiled guides:
 
 - LinkedIn: www.linkedin.com/in/roberto-sorce-52491512a 
 
--LinkedIn article: https://www.linkedin.com/pulse/simulating-iot-device-exchanging-messages-over-mqtt-protocol-sorce
+- LinkedIn article: https://www.linkedin.com/pulse/simulating-iot-device-exchanging-messages-over-mqtt-protocol-sorce
 
 - Create an IoT Hub with Microsoft Azure: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal
 
