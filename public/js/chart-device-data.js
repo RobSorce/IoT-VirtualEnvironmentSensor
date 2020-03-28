@@ -163,7 +163,7 @@ $(document).ready(() => {
           ticks:{
             min: 0,
             max: 360,
-            stepSize:36,
+            stepSize:90,
           }
         }]
       }
@@ -301,11 +301,11 @@ $(document).ready(() => {
     chartDataHumidity.labels = device.timeData;
     chartDataHumidity.datasets[0].data = device.humidityData;
 
-    chartDataWindIntensity.labels = device.timeData;
-    chartDataWindIntensity.datasets[0].data = device.windIntensityData;
-
     chartDataWindDirection.labels = device.timeData;
     chartDataWindDirection.datasets[0].data = device.windDirectionData;
+
+    chartDataWindIntensity.labels = device.timeData;
+    chartDataWindIntensity.datasets[0].data = device.windIntensityData;
 
     chartDataRainHeight.labels = device.timeData;
     chartDataRainHeight.datasets[0].data = device.rainHeightData;
@@ -333,13 +333,13 @@ $(document).ready(() => {
       const existingDeviceData = trackedDevices.findDevice(messageData.DeviceId);
 
       if (existingDeviceData) {
-        existingDeviceData.addData(messageData.MessageDate, messageData.IotData.temperature, messageData.IotData.humidity, messageData.IotData.windIntensity, messageData.IotData.windDirection, messageData.IotData.rainHeight);
+        existingDeviceData.addData(messageData.MessageDate, messageData.IotData.temperature, messageData.IotData.humidity, messageData.IotData.windDirection, messageData.IotData.windIntensity, messageData.IotData.rainHeight);
       } else {
         const newDeviceData = new DeviceData(messageData.DeviceId);
         trackedDevices.devices.push(newDeviceData);
         const numDevices = trackedDevices.getDevicesCount();
         deviceCount.innerText = numDevices === 1 ? `${numDevices} device` : `${numDevices} devices`;
-        newDeviceData.addData(messageData.MessageDate, messageData.IotData.temperature, messageData.IotData.humidity, messageData.IotData.windIntensity, messageData.IotData.windDirection, messageData.IotData.rainHeight);
+        newDeviceData.addData(messageData.MessageDate, messageData.IotData.temperature, messageData.IotData.humidity, messageData.IotData.windDirection, messageData.IotData.windIntensity, messageData.IotData.rainHeight);
 
         // add device to the UI list
         const node = document.createElement('option');
@@ -357,8 +357,8 @@ $(document).ready(() => {
 
       chartHumidity.update();
       chartTemperature.update();
-      chartWindIntensity.update();
       chartWindDirection.update();    
+      chartWindIntensity.update();
       chartRainHeight.update();
 	  
     } catch (err) {

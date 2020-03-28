@@ -30,14 +30,14 @@ if __name__ == "__main__":
     while(True):
         envData1 = {'temperature': random.randrange(-50, 50),
                 'humidity': random.randrange(0, 100),
-                'windIntensity':random.randrange(0, 100),
                 'windDirection':random.randrange(0, 360),
+                'windIntensity':random.randrange(0, 100),
                 'rainHeight':random.randrange(0, 50)
                 }
         envData2 = {'temperature': random.randrange(-50, 50),
                 'humidity': random.randrange(0, 100),
-                'windIntensity':random.randrange(0, 100),
                 'windDirection':random.randrange(0, 360),
+                'windIntensity':random.randrange(0, 100),
                 'rainHeight':random.randrange(0, 50)
                 }
         print((json.dumps(envData1)))
