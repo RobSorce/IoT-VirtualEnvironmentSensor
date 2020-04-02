@@ -3,7 +3,8 @@ import json
 import paho.mqtt.client as mqtt
 from azure.iot.device import Message, IoTHubDeviceClient, MethodResponse
 
-
+# Open the connection to the MQTT-SN broker to subscribe to the topics
+# listed in the function: the client select which one to subscribe
 def on_connect(res_code):
     print("Gateway connected with result code: " + str(res_code))
     # Names of the topic to be subscribed by the client to gather messages:
@@ -14,11 +15,12 @@ def on_connect(res_code):
     mqttsn_broker_client.subscribe("env/windIntensity")
     mqttsn_broker_client.subscribe("env/rainHeight")
 
-
+# Advertise when the MQTT-SN broker disconnects
 def on_disconnect():
     print("Gateway disconnected")
 
-
+# Extract the telemetries from the messages received and encapsulate them
+# into a json file and then sent to the MQTT broker
 def on_message(message):
     payload = message.payload
     temperature = int(str(payload[0])) - 50

@@ -1,14 +1,13 @@
 import threading
 import time
 import random
-import datetime
 import json
 import os
 from azure.iot.device import IoTHubDeviceClient, MethodResponse
 
 """
-# This code generates random values for 5 different environmental sensors, 
-# grouped into a virtual device on the Azure IoT Hub:  
+# This code generates random values for 5 different environmental sensors,
+# grouped into a virtual device on the Azure IoT Hub:
 # The data will be published on a MQTT channel (by default using Python),
 # then the values can be read by the web app in order to plot the values on the charts.
 """
