@@ -20,7 +20,7 @@ def on_disconnect():
     print("Gateway disconnected")
 
 # Extract the telemetries from the messages received and encapsulate them
-# into a json file and then sent to the MQTT broker
+# into a json file, then sends it to the MQTT broker (Microsoft Azure - IoT Hub)
 def on_message(message):
     payload = message.payload
     temperature = int(str(payload[0])) - 50

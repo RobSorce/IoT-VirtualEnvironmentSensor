@@ -1,4 +1,3 @@
-import threading
 import time
 import random
 import json
@@ -21,7 +20,6 @@ if __name__ == "__main__":
     # Create instance of the device client using the connection string
     device_client1 = IoTHubDeviceClient.create_from_connection_string(conn_str, websockets=True)
     device_client2 = IoTHubDeviceClient.create_from_connection_string(conn_str2, websockets=True)
-
 
     # Connect the device clients.
     device_client1.connect()
