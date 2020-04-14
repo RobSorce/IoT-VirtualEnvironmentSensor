@@ -5,7 +5,7 @@ from azure.iot.device import Message, IoTHubDeviceClient, MethodResponse
 
 # Open the connection to the MQTT-SN broker to subscribe to the topics
 # listed in the function: the client select which one to subscribe
-def on_connect(res_code):
+def on_connect(client, user_data, flags, res_code):
     print("Gateway connected with result code: " + str(res_code))
     # Names of the topic to be subscribed by the client to gather messages:
     mqttsn_broker_client.subscribe("env/all")
@@ -21,7 +21,7 @@ def on_disconnect():
 
 # Extract the telemetries from the messages received and encapsulate them
 # into a json file, then sends it to the MQTT broker (Microsoft Azure - IoT Hub)
-def on_message(message):
+def on_message(client, user_Data, message):
     payload = message.payload
     temperature = int(str(payload[0])) - 50
     humidity = int(str(payload[1]))
