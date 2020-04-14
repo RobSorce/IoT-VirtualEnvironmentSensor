@@ -409,7 +409,7 @@ static int _cmd_loramac(int argc, char **argv)
                             wind_intensity, rain_height};
 
         switch (semtech_loramac_send(&loramac,
-                                     (uint8_t *)mess, strlen(mess))) {
+                                     (uint8_t *)env_data, strlen(env_data))) {
             case SEMTECH_LORAMAC_NOT_JOINED:
                 puts("Cannot send: not joined");
                 return 1;
