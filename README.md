@@ -22,10 +22,13 @@ The Azure platform is also used as MQTT Broker, from which the data gathered fro
 - A [Microsoft Azure](https://azure.microsoft.com/en-us/) account
 - An Azure IoT Hub
 - Virtual devices inside the IoT Hub
+- [TheThingsNetwork](https://www.thethingsnetwork.org/) Account
+- [IotLab Account](https://www.iot-lab.info/)
 - [NodeJS](https://nodejs.org/it/download/) 12 LTS
 - [Python](https://www.python.org/downloads/) 3.6+
 - [RIOT-OS GitHub](https://github.com/RIOT-OS/RIOT)
-- Ubuntu 18.04 (not necessarily)
+- Ubuntu 18.04 LTS (not necessarily)
+- [Mosquitto MQTT broker](https://www.vultr.com/docs/how-to-install-mosquitto-mqtt-broker-server-on-ubuntu-16-04)
 
 
 ## Instructions
@@ -42,10 +45,22 @@ Enjoy it!
 
 Useful links and detailed guides:
 
-
+- Video Tutorial
 
 - LinkedIn: www.linkedin.com/in/roberto-sorce-52491512a
+
+- TheThingsNetwork: https://www.thethingsnetwork.org/
+
+- LoRaWAN tutorial on IotLab: https://www.iot-lab.info/tutorials/riot-ttn/
 
 - RIOT-OS webpage: https://riot-os.org/
 
 - RIOT-OS GitHub: https://github.com/RIOT-OS/RIOT
+
+- ST B-L072Z-LRWAN1 specs: https://www.st.com/en/evaluation-tools/b-l072z-lrwan1.html
+
+- Hands-on Tutorial #1: https://www.linkedin.com/pulse/simulating-iot-device-exchanging-messages-over-mqtt-protocol-sorce
+
+- Hands-on Tutorial #2: https://www.linkedin.com/pulse/building-iot-system-riot-microsoft-azure-roberto-sorce
+
+- Hands-on Tutorial #3: 
