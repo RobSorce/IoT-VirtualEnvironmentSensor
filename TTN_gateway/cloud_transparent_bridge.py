@@ -26,9 +26,9 @@ def on_message(client, userdata, message):
     data = json.dumps(env_data)
     # print(data)
     print(dev_id + " Sending telemetry message to the IoT Hub... " + data)
-    if dev_id == config['HUB']['Device1']:
+    if dev_id == config['TTN']['Device1']:
         hub_client1.send_message(data)
-    elif dev_id == config['HUB']['Device2']:
+    elif dev_id == config['TTN']['Device2']:
         hub_client2.send_message(data)
     print("Message successfully sent!")
 
