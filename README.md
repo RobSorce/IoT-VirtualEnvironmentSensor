@@ -63,4 +63,4 @@ Useful links and detailed guides:
 
 - Hands-on Tutorial #2: https://www.linkedin.com/pulse/building-iot-system-riot-microsoft-azure-roberto-sorce
 
-- Hands-on Tutorial #3: 
+- Hands-on Tutorial #3: https://www.linkedin.com/pulse/build-open-source-iot-system-lorawan-ttn-riot-roberto-sorce
