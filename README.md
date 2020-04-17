@@ -45,7 +45,7 @@ Enjoy it!
 
 Useful links and detailed guides:
 
-- Video Tutorial
+- Video Tutorial:  https://youtu.be/jrL_tACy1sI 
 
 - LinkedIn: www.linkedin.com/in/roberto-sorce-52491512a
 
