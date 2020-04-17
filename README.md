@@ -33,6 +33,134 @@ The Azure platform is also used as MQTT Broker, from which the data gathered fro
 
 ## Instructions
 
+configure the SSH access to the IoT-Lab site. Let's open a Terminal if you're using Linux or macOS and type:
+
+
+```
+ssh-keygen -t rsa
+
+```
+
+Use the public key generated to gain access to the website, copying it from your stored file in the home folder, and pasting it into the SSH keys page inside the settings.
+
+connect from the terminal through SSH to the Saclay site, typing:
+
+```
+ssh <my_name>@saclay.iot-lab.info
+```
+
+Authenticate with your IoT-LAB password:
+
+```
+iotlab-auth -u <my_name>
+```
+
+Start a new experiment using the following command:
+
+```
+iotlab-experiment submit -n riot_ttn -d 60 -l 2,archi=st-lrwan1:sx1276+site=saclay
+```
+
+This command will start a new experiment called riot_ttn, that will last 60 minutes, using two nodes over the architecture ST-LRWAN1, the ST Microelectronics board where the application will be executed.
+
+To get important informations about the experiment we are going to use the following commands (replace <exp_id> with your experiment ID):
+
+```
+iotlab-experiment get -i <exp_id> -s
+iotlab-experiment get -i <exp_id> -r
+```
+
+nstall RIOT from the RIOT GitHub page, to get the code of the 2019.01 release of RIOT from GitHub and also clone my GitHub repository inside IoT-LAB:
+
+```
+git clone https://github.com/RIOT-OS/RIOT.git -b 2019.01-branch
+git clone https://github.com/RobSorce/IoT-VirtualEnvironmentSensor.git
+```
+
+Now we need to replace an existing file in a specific folder, inside "RIOT/tests/pkg_semtech-loramac", in order to run our RIOT-OS client representing the virtual environment station. Replace the file with this command and move inside the RIOT folder:
+
+```
+cp -a IoT-VirtualEnvironmentSensor/LoRaWAN_station/. RIOT/tests/pkg_semtech-loramac
+cd RIOT
+```
+
+update the ARM GCC tool version, because RIOT doesn’t support the ARM GCC version installed by default on the SSH frontend:
+
+```
+export PATH=/opt/gcc-arm-none-eabi-7-2018-q2-update/bin:$PATH
+```
+
+Now, build our LoRaWAN station application typing this command:
+
+```
+make -C tests/pkg_semtech-loramac clean all
+```
+
+Flash the ST LoRa node with the LoRaWAN firmware, paying attention to the ID of each node: 
+
+```
+iotlab-node --update tests/pkg_semtech-loramac/bin/b-l072z-lrwan1/tests_pkg_semtech-loramac.elf -l saclay,st-lrwan1,<yourDevID>
+
+iotlab-node --update tests/pkg_semtech-loramac/bin/b-l072z-lrwan1/tests_pkg_semtech-loramac.elf -l saclay,st-lrwan1,<yourDevID>
+```
+
+Using the Netcat command (nc) from the terminal, we'll be able to access the RIOT shell that runs on each node: again, from the first terminal, replace the ID of your node, then do the same for thesecond node. 
+
+```
+nc st-lrwan1-<YourDevID> 20000
+```
+
+Repeat the same same procedure to start the other node.
+
+The shell provides the loramac command to interact with the LoRaWAN stack running on the node:
+
+```
+> help
+help
+Command              Description
+---------------------------------------
+loramac              control the loramac stack
+reboot               Reboot the node
+random_init          initializes the PRNG
+random_get           returns 32 bit of pseudo randomness
+> loramac
+loramac
+Usage: loramac <get|set|join|tx>
+
+```
+
+Find the Device EUI, Application EUI and Application key information in the Overview tab of the iotlab-nodedevice on the TTN web console. Then set them to the RIOT firmware (replace the following with your values):
+
+```
+> loramac set deveui 00000000000000
+> loramac set appeui 00000000000000
+> loramac set appkey 0000000000000000000000000000
+```
+
+Set a fast datarate, e.g. 5, corresponding to a bandwidth of 125kHz, since the nodes are very close to the gateway:
+
+```
+> loramac set dr 5
+```
+
+Join it to the network using the OTAA:
+
+```
+> loramac join otaa
+```
+
+Start publishing telemetry messages from the virtual LoRaWAN station:
+
+```
+> loramac publisher
+```
+
+Start the TTN Cloud transparent bridge form the terminal to allow the back-end platform Azure to receive the messages:
+
+```
+python3 cloud_transparent_bridge.py
+```
+
 Run the web app from the terminal:
 
 ```
