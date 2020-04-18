@@ -1,7 +1,7 @@
 # IoT-VirtualEnvironmentSensor
 # Assignment 3
 
-## Send telemetry messages over ***MQTT*** using ***RIOT***, ***TheThingsNetwork (TTN)*** and ***Microsoft Azure IoTHub***:
+## Send telemetry messages over ***MQTT*** and LoRaWAN using ***RIOT***, ***TheThingsNetwork (TTN)*** and ***Microsoft Azure IoTHub***:
 
 This repository contains an implementation in Python of the message exchange over the MQTT protocol between a _virtual_ IoT device implemented with RIOT-OS and a MQTT Broker.
 
