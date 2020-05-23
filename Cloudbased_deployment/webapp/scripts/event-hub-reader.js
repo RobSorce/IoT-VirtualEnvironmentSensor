@@ -12,6 +12,8 @@ class EventHubReader {
     this.receiveHandlers = undefined;
   }
 
+
+  //it reads messages received by the IoT hub
   async startReadMessage(startReadMessageCallback) {
     try {
       const client = await EventHubClient.createFromIotHubConnectionString(this.connectionString);
