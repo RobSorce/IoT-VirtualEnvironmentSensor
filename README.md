@@ -29,6 +29,8 @@ Hands-on Tutorial #2: https://www.linkedin.com/pulse/building-iot-system-riot-mi
 
 Hands-on Tutorial #3: https://www.linkedin.com/pulse/build-open-source-iot-system-lorawan-ttn-riot-roberto-sorce
 
+Hands-on Tutorial #4: https://www.linkedin.com/pulse/human-activity-recognition-roberto-sorce
+
 Generic Sensor API: https://www.w3.org/TR/generic-sensor/
 
 Scientific articles proposed for this project (papers):
