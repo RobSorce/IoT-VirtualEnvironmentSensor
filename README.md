@@ -38,7 +38,7 @@ Run Visual Studio Code from you computer. If you need the terminal to do anythin
 code .
 ```
 
-If you're a normal person and you're not afraid of breaking a finger on the trackpad or the mouse, just open it from the app folder.
+If you're a normal person and you're not afraid of breaking a finger while double clicking on the trackpad or the mouse, just open it from the app folder. 
 
 Move into the folders that you downloaded in the previous steps from my GitHub repository and modify the code:
 
