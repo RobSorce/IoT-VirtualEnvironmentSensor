@@ -25,6 +25,7 @@ npm start
 
 4. You can also check that the data are being received as done before using the Azure CLI: open the Azure portal and then open the terminal provided by Azure. From the PowerShell type:
 
-´´´
+```
 az iot hub monitor-events --hub-name <your_iot-hub_name> --output table
-´´´
+
+
