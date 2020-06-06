@@ -1,37 +1,47 @@
 <!doctype html>
+<!-- This document defines the html webpage of the local webapp, to visualize the Human Activity Recognition, 
+     when using the cloud deployment web application from your smartphone. 
+     Using this web application from your computer, allow you to track and visualize the data coming from the devices,
+     keeping even older activity data into charts. -->
 
 <html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Roberto Sorce">
 
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"" type="text/javascript" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous" type="text/javascript" charset="utf-8"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/chart-device-data.js" type="text/javascript" charset="utf-8"></script>
     <link href="css/style.css" rel="stylesheet" />
 
-    <title>Accelerometer UAR Real-time Data</title>
+    <title>Human Activity Recognition | Cloud</title>
 </head>
 
 <body>
     <h1 class="flexHeader">
-        <span>
+          <span>
             <span id="deviceCount">0 devices</span>
             <select id="listOfDevices" class="select_box"></select>
         </span>
-        <span>Accelerometer cloud-based Real-time Data</span>
+        <span>Cloud deployment | Accelerometer Real-time Data</span>
     </h1>
     <div>
+      <h2>
+        <p class="description">This web application gathers acceleration data (m/s^2) from your device's accelerometer in each frame direction (X, Y, Z). The data collected is computed by Microsoft® Azure cloud platform, and the computation of the sensor data is analyzed to understand wether the user is moving or either if is standing still.</p>
+      </h2>
+    </div>
+    <div>
         <h2>
-            <span id="latestX">Latest X</span>
-            <span id="latestY">Latest Y</span>
-            <span id="latestZ">Latest Z</span>
+            <span id="latestX">X </span>
+            <span id="latestY">Y </span>
+            <span id="latestZ">Z </span>
         </h2>
     </div>
     <div>
         <h2>
-            <span id="activity">This is the activity</span>
+            <span id="activity">Human Activity Recognition</span>
         </h2>
     </div>
     <div>
@@ -46,6 +56,9 @@
     <div>
         <canvas id="lastHourActivity" height="30"></canvas>
     </div>
+
+    <p>This web application uses: <a href="https://mobiforge.com/design-development/the-generic-sensor-api">The Generic Sensor API</a> to retrieve sensor data from accelerometer</p>
+
 </body>
 
 </html>
